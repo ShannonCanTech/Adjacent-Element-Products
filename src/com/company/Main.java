@@ -31,13 +31,19 @@ public class Main {
 
     public static int adjacentElementsProduct(int[] inputArray) {
 
-        int product = inputArray[0] * inputArray[1];
+        int product = Integer.MIN_VALUE;
+        for(int i = 0; i < inputArray.length-1; i++) {
+            product = inputArray[i]*inputArray[i]>product?inputArray[i]*inputArray[i+1]:product;
+        }
+
+        //Method 1
+/*        int product = inputArray[0] * inputArray[1];
         for (int i = 0; i < inputArray.length-1; i++) {
             int adjElements = inputArray[i] * inputArray[i+1];
             if (adjElements > product ){
                 product = adjElements;
             }
-        }
+        }*/
 
         return product;
     }
